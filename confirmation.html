@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css?v=6" />
-  <script src="config.js?v=6"></script>
+  <script src="config.js?v=7"></script>
 </head>
 <body>
 
@@ -145,6 +145,18 @@
         });
         renderChapters(true);
       } else if (wistia) {
+        if (cfg.CONFIRM_ASPECT) box.style.aspectRatio = String(cfg.CONFIRM_ASPECT);
+        // miniature Wistia derrière l'overlay avant le clic
+        fetch("https://fast.wistia.com/oembed?url=" + encodeURIComponent("https://home.wistia.com/medias/" + wistia) + "&format=json")
+          .then((r) => r.json())
+          .then((d) => {
+            if (d && d.thumbnail_url && !box.querySelector("iframe")) {
+              const img = document.createElement("img");
+              img.src = d.thumbnail_url; img.alt = "";
+              img.style.cssText = "position:absolute;inset:0;width:100%;height:100%;object-fit:cover";
+              box.prepend(img);
+            }
+          }).catch(() => {});
         box.addEventListener("click", () => {
           box.innerHTML = '<iframe src="https://fast.wistia.net/embed/iframe/' + wistia +
             '?seo=false&videoFoam=true&autoPlay=true" title="Prépare ton appel" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>';

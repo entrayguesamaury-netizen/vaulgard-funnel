@@ -76,21 +76,13 @@ window.VAULGARD_CONFIG = {
   //    tes recherches" / réponses aux questions des calls).
   //    Soit un mp4 (chapitres cliquables), soit un ID Wistia.
   CONFIRM_VIDEO_URL: "",       // ex: "assets/confirmation.mp4"
-  CONFIRM_WISTIA_ID: "",       // ex: "abc123xyz" (utilisé si pas de mp4)
-  // Chapitres [seconde, titre] — cliquables si mp4
-  CONFIRM_CHAPTERS: [
-    [0, "Ce qui se passe maintenant"],
-    [45, "Comment vérifier qui on est"],
-    [120, "Ce qu'on va regarder ensemble sur l'appel"],
-    [200, "Comment on gagne de l'argent (le pourcentage)"],
-  ],
+  CONFIRM_WISTIA_ID: "5a9jx6wxin", // ID Wistia (utilisé si pas de mp4)
+  CONFIRM_ASPECT: 1.5434,      // ratio largeur/hauteur de la vidéo Wistia
+  // Chapitres [seconde, titre] — cliquables si mp4. Vide = masqué.
+  CONFIRM_CHAPTERS: [],
 
   // 8. BREAKOUT VIDEOS — une vidéo courte par question posée en call.
-  //    Wistia ID vide = carte affichée en "bientôt disponible" masquée.
-  BREAKOUTS: [
-    { titre: "C'est quoi Vaulgard Engine, concrètement ?", wistia: "" },
-    { titre: "Et si YouTube coupe la monétisation des chaînes IA ?", wistia: "" },
-    { titre: "Pourquoi certains réussissent et d'autres non ?", wistia: "" },
-    { titre: "Comment vous gagnez de l'argent avec moi ? (le pourcentage)", wistia: "" },
-  ],
+  //    Liste vide = section entière masquée. À réactiver plus tard :
+  //    { titre: "C'est quoi Vaulgard Engine, concrètement ?", wistia: "xxxx" },
+  BREAKOUTS: [],
 };
