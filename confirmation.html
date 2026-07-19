@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C'est réservé — Vaulgard</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Ton appel est réservé. Prépare-le en 10 minutes : les réponses aux questions qu'on nous pose à chaque appel." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+  <script src="config.js?v=6"></script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="top">
+    <div class="inner">
+      <a href="index.html"><img src="logo-long.png" alt="Vaulgard" /></a>
+      <span class="small">Appel confirmé ✓</span>
+    </div>
+  </nav>
+
+  <!-- ===== HERO + VIDÉO PRINCIPALE ===== -->
+  <header class="hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <div class="hero-badge"><span class="dot"></span> Ton appel est réservé</div>
+      <h1 style="font-size:clamp(30px,4.6vw,54px)">
+        C'est réservé. Maintenant,<br />
+        <span class="hl">fais tes recherches sur nous.</span>
+      </h1>
+      <p class="sub">La vidéo ci-dessous répond aux questions qu'on nous pose sur chaque appel.<br />
+      10 minutes maintenant, zéro surprise sur l'appel.</p>
+
+      <!-- Vidéo principale : mp4 (chapitres cliquables) ou Wistia — config.js -->
+      <div class="vsl" id="confirm-video" style="max-width:820px">
+        <video id="cv" playsinline preload="metadata" style="display:none"></video>
+        <div class="overlay" id="cv-overlay">
+          <div class="play">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#0a0a0a"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <p>▶ Les réponses aux questions de l'appel — 10 min</p>
+        </div>
+      </div>
+      <div class="chapters" id="chapters"></div>
+    </div>
+  </header>
+
+  <!-- ===== LES 3 CHOSES À FAIRE ===== -->
+  <section class="wrap" style="padding:30px 24px 20px">
+    <div class="steps-row">
+      <div class="card step-card">
+        <div class="step-n">1</div>
+        <h3>Accepte l'invitation agenda</h3>
+        <p>Elle vient d'arriver par email. Tant qu'elle n'est pas acceptée, le créneau peut sauter.</p>
+      </div>
+      <div class="card step-card" id="phone-card">
+        <div class="step-n">2</div>
+        <h3>Enregistre ce numéro</h3>
+        <p><b id="team-phone" style="font-family:var(--font-mono); color:var(--ink)"></b><br />
+        Si ce numéro t'appelle ou t'écrit, c'est nous — on prépare ton appel avec toi.</p>
+      </div>
+      <div class="card step-card">
+        <div class="step-n">3</div>
+        <h3>Installe-toi comme à un rendez-vous</h3>
+        <p>Au calme, caméra allumée, 30 minutes devant toi. C'est une réunion de travail sur TA situation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BREAKOUT VIDEOS — les questions des calls ===== -->
+  <section class="wrap" id="breakouts-section" style="padding:60px 24px 20px">
+    <div class="eyebrow">Avant ton appel</div>
+    <h2 style="font-size:clamp(22px,3vw,34px)">Les questions que tout le monde pose.<br /><span style="color:var(--ink-soft)">Réponses courtes, sans rendez-vous.</span></h2>
+    <div class="breakout-grid" id="breakouts"></div>
+  </section>
+
+  <!-- ===== MUR DE TÉMOIGNAGES (volume) ===== -->
+  <section class="videos" id="temoignages" style="border-top:1px solid var(--line); margin-top:60px">
+    <div class="wrap">
+      <div class="eyebrow">Pendant que tu attends ton appel</div>
+      <h2 style="font-size:clamp(22px,3vw,34px)">Eux aussi sont passés par cet appel.</h2>
+      <p class="small" style="margin-top:8px">13 interviews non scriptées — aucun acteur, aucun cas trié sur le volet.</p>
+      <div class="vrow" id="vrow"></div>
+      <p class="small tcenter" style="margin-top:20px">*Résultats individuels. Aucun revenu n'est garanti — le tien dépendra de ton exécution.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <img src="logo-long.png" alt="Vaulgard" />
+      <p class="foot-tag">Un actif. Pas un job.</p>
+      <div class="foot-legal">
+        <span>© 2026 Vaulgard — Tous droits réservés</span>
+        <a href="terms.html">Conditions</a>
+        <a href="privacy.html">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const cfg = window.VAULGARD_CONFIG || {};
+
+      /* ===== numéro de l'équipe ===== */
+      const phone = (cfg.TEAM_PHONE || "").trim();
+      if (phone) document.getElementById("team-phone").textContent = phone;
+      else document.getElementById("phone-card").style.display = "none";
+
+      /* ===== vidéo principale : mp4 avec chapitres cliquables, sinon Wistia ===== */
+      const box = document.getElementById("confirm-video");
+      const video = document.getElementById("cv");
+      const overlay = document.getElementById("cv-overlay");
+      const chaptersEl = document.getElementById("chapters");
+      const mp4 = (cfg.CONFIRM_VIDEO_URL || "").trim();
+      const wistia = (cfg.CONFIRM_WISTIA_ID || "").trim();
+
+      function renderChapters(clickable) {
+        (cfg.CONFIRM_CHAPTERS || []).forEach(([sec, titre]) => {
+          const b = document.createElement("button");
+          b.className = "chapter";
+          const m = Math.floor(sec / 60), s = sec % 60;
+          b.innerHTML = "<b>" + m + ":" + String(s).padStart(2, "0") + "</b> " + titre;
+          if (clickable) {
+            b.addEventListener("click", () => {
+              video.currentTime = sec;
+              video.play();
+              overlay.style.opacity = 0;
+              overlay.style.pointerEvents = "none";
+            });
+          } else { b.style.cursor = "default"; }
+          chaptersEl.appendChild(b);
+        });
+      }
+
+      if (mp4) {
+        video.style.display = "block";
+        video.src = mp4;
+        if (cfg.VSL_POSTER) video.poster = cfg.VSL_POSTER;
+        box.addEventListener("click", () => {
+          if (video.paused) { video.muted = false; video.play(); overlay.style.opacity = 0; overlay.style.pointerEvents = "none"; }
+          else { video.pause(); overlay.style.opacity = 1; overlay.style.pointerEvents = "auto"; }
+        });
+        renderChapters(true);
+      } else if (wistia) {
+        box.addEventListener("click", () => {
+          box.innerHTML = '<iframe src="https://fast.wistia.net/embed/iframe/' + wistia +
+            '?seo=false&videoFoam=true&autoPlay=true" title="Prépare ton appel" allow="autoplay; fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>';
+        }, { once: true });
+        renderChapters(false);
+      } else {
+        overlay.querySelector("p").textContent = "Vidéo à ajouter dans config.js (CONFIRM_VIDEO_URL ou CONFIRM_WISTIA_ID)";
+        renderChapters(false);
+      }
+
+      /* ===== breakout videos ===== */
+      const grid = document.getElementById("breakouts");
+      const breakouts = (cfg.BREAKOUTS || []).filter((b) => b.titre);
+      if (!breakouts.length) document.getElementById("breakouts-section").style.display = "none";
+      breakouts.forEach((b) => {
+        const fig = document.createElement("figure");
+        fig.className = "vcard-holder";
+        const hasVid = (b.wistia || "").trim();
+        fig.innerHTML =
+          '<div class="vcard wide breakout" ' + (hasVid ? 'data-wistia="' + b.wistia + '"' : "") + "></div>" +
+          '<figcaption><div class="vname" style="font-size:16px">' + b.titre + "</div></figcaption>";
+        grid.appendChild(fig);
+        const card = fig.querySelector(".vcard");
+        if (hasVid) {
+          armWistia(card, b.wistia, b.titre);
+        } else {
+          card.innerHTML = '<div class="soon">Réponse en vidéo — bientôt</div>';
+          card.style.cursor = "default";
+        }
+      });
+
+      function playIcon() {
+        const d = document.createElement("div");
+        d.className = "vplay";
+        d.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#0a0a0a"><path d="M8 5v14l11-7z"/></svg>';
+        return d;
+      }
+
+      function armWistia(card, id, title) {
+        fetch("https://fast.wistia.com/oembed?url=" + encodeURIComponent("https://home.wistia.com/medias/" + id) + "&format=json")
+          .then((r) => r.json())
+          .then((d) => {
+            if (d && d.thumbnail_url) {
+              const img = document.createElement("img");
+              img.src = d.thumbnail_url; img.alt = ""; img.loading = "lazy";
+              card.prepend(img);
+            }
+          }).catch(() => {});
+        card.appendChild(playIcon());
+        card.addEventListener("click", () => {
+          card.innerHTML = '<iframe src="https://fast.wistia.net/embed/iframe/' + id +
+            '?seo=false&videoFoam=true&autoPlay=true" title="' + title + '" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+        }, { once: true });
+      }
+
+      /* ===== mur de témoignages (mêmes 13 vidéos que la landing) ===== */
+      const INTERVIEWS = [
+        { name: "Mavrick", key: "Mavrick", id: "fa5pj73c7q" },
+        { name: "Florian", key: "Florian", id: "7ib4vhbiqf" },
+        { name: "Anaïs", key: "Anaïs", id: "6h39q9zx93" },
+        { name: "Maxime", key: "Maxime-1", id: "0tf9fwvzmh" },
+        { name: "Stéphane", key: "Stéphane", id: "1qu44s7xac" },
+        { name: "Iris", key: "Iris", id: "9jli0af1yh" },
+        { name: "Marcus", key: "Marcus", id: "6k0v5708gr" },
+        { name: "Yumé", key: "Yumé", id: "wskmkqbqh0" },
+        { name: "Théo", key: "Théo", id: "2zv9ci4svz" },
+        { name: "Titouan", key: "Titouan", id: "d4lg3hbcz0" },
+        { name: "Maxime", key: "Maxime-2", id: "en0ahla7b4" },
+        { name: "Léo", key: "Léo", id: "mep8frhphu" },
+        { name: "Mathis", key: "Mathis", id: "db6zx6vhhw" },
+      ];
+      const froms = cfg.INTERVIEWS_FROM || {};
+      const metas = cfg.INTERVIEWS_META || {};
+      const order = cfg.INTERVIEWS_ORDER || [];
+      const byKey = {};
+      INTERVIEWS.forEach((it) => { byKey[it.key] = it; });
+      const sorted = order.map((k) => byKey[k]).filter(Boolean)
+        .concat(INTERVIEWS.filter((it) => !order.includes(it.key)));
+      const vrow = document.getElementById("vrow");
+      sorted.forEach((it) => {
+        const from = (froms[it.key] || "").trim();
+        const meta = (metas[it.key] || "").trim();
+        const fig = document.createElement("figure");
+        fig.className = "vcard-holder vslot";
+        fig.innerHTML =
+          '<div class="vcard" data-wistia="' + it.id + '"></div>' +
+          '<figcaption><div class="vtag">' + (from || "Interview membre") + '</div>' +
+          '<div class="vname">' + it.name + (meta ? ' <span class="vmeta">· ' + meta + "</span>" : "") + "</div></figcaption>";
+        vrow.appendChild(fig);
+        armWistia(fig.querySelector(".vcard"), it.id, "Interview " + it.name);
+      });
+    })();
+  </script>
+</body>
+</html>

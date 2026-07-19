@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaulgard — Monte une chaîne YouTube qui te paye tous les mois</title>
+  <meta name="description" content="3 chaînes monétisées ces 2 derniers jours, sans jamais allumer une caméra. Regarde la vidéo puis réserve ton appel — on construit ton plan selon ta situation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:ital,wght@0,400;0,500;0,600;1,800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=6" />
+  <script src="config.js?v=6"></script>
+  <script type="text/javascript" src="https://app.iclosed.io/assets/widget.js" async></script>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="top">
+    <div class="inner">
+      <a href="index.html"><img src="logo-long.png" alt="Vaulgard" /></a>
+      <a class="btn" style="padding:10px 20px; font-size:13.5px" href="#reservation">Réserver mon appel&nbsp;&nbsp;→</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO + VSL ===== -->
+  <header class="hero">
+    <div class="wrap reveal in">
+      <div class="hero-badge"><span class="dot"></span> <span id="badge-places">10 places sur la cohorte de juillet</span></div>
+      <h1 id="hero-h1">
+        Monte une chaîne YouTube qui te paye
+        tous les mois avec <span class="engine">Vaulgard Engine</span><br />
+        <span class="hl">(monétisée en 90 jours)</span>
+      </h1>
+      <p class="sub">3 chaînes monétisées ces 2 derniers jours — sans jamais allumer une caméra.<br />
+      Découvre comment…</p>
+
+      <!-- VSL : mets ton fichier dans config.js (VSL_URL) -->
+      <div class="vsl" id="vsl">
+        <video id="vsl-video" playsinline preload="metadata"></video>
+        <div class="overlay" id="vsl-overlay">
+          <div class="play">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#0a0a0a"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <p>▶ L'histoire des 3 chaînes monétisées en 2 jours — 7 min</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== PONT VERS LA RÉSERVATION ===== -->
+  <section class="bridge reveal in">
+    <p>Imagine la notification dans 90 jours&nbsp;: <span class="g">«&nbsp;Votre chaîne est monétisée.&nbsp;»</span><br />
+    L'appel ci-dessous, c'est le jour&nbsp;1.</p>
+    <div class="arrow-down">↓</div>
+    <p class="small" style="margin-top:18px">13 membres interviewés en vidéo plus bas&nbsp;↓</p>
+  </section>
+
+  <!-- ===== RÉSERVATION (iClosed direct) ===== -->
+  <section class="booking-shell" id="reservation">
+    <div id="booking-embed">
+      <!-- iClosed inline widget begin -->
+      <div class="iclosed-widget" data-url="https://app.iclosed.io/e/youtubefreedom/r-serve-ton-appel-avec-vaulgard" title="Réserve ton appel avec Vaulgard" style="width: 100%; height: 620px"></div>
+      <!-- iClosed inline widget end -->
+    </div>
+    <p class="small tcenter" style="margin-top:18px">Appel gratuit, 30 minutes. Tu repars avec ton plan — que tu continues avec nous ou pas.</p>
+  </section>
+
+  <!-- ===== TÉMOIGNAGES VIDÉO — le mur des miroirs ===== -->
+  <section class="videos" id="temoignages">
+    <div class="wrap">
+      <div class="eyebrow">01 · Témoignages</div>
+      <h2>Aucun n'a montré son visage. <span style="color:var(--ink-soft)">Tous montrent leurs chiffres.</span></h2>
+      <p class="muted" style="margin-top:16px; max-width:560px">13 membres, 13 points de départ différents. <strong>Trouve le tien.</strong></p>
+      <p class="small" style="margin-top:6px">13 interviews non scriptées — aucun acteur, aucun cas trié sur le volet.</p>
+
+      <!-- Étude de cas vedette (16:9) : le chiffre nu dans la légende, l'histoire dans la vidéo -->
+      <div class="vwide-holder">
+        <figure class="vcard-holder">
+          <div class="vcard wide" data-wistia="u96fn1lixj" data-title="De chômeur à 5 000 €/mois"></div>
+          <figcaption>
+            <div class="vtag">Les candidatures sans réponse. Puis ça.</div>
+            <div class="vname" style="font-size:21px">0 → 5&nbsp;000&nbsp;€/mois — sans montrer son visage*</div>
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Interviews membres (9:16, défilement horizontal) + carte n°14 -->
+      <div class="vrow" id="vrow"></div>
+
+      <p class="tcenter" style="margin-top:30px">
+        <span class="muted" style="display:block; margin-bottom:16px">Tu viens de voir 13 personnes qui se disaient «&nbsp;pas moi&nbsp;».</span>
+        <a class="btn" href="#reservation">Réserver mon appel&nbsp;&nbsp;→</a>
+      </p>
+      <p class="small tcenter" style="margin-top:26px">*Résultats individuels. Aucun revenu n'est garanti — le tien dépendra de ton exécution.</p>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <img src="logo-long.png" alt="Vaulgard" />
+      <p class="foot-tag">Un actif. Pas un job.</p>
+      <div class="foot-legal">
+        <span>© 2026 Vaulgard — Tous droits réservés</span>
+        <a href="terms.html">Conditions</a>
+        <a href="privacy.html">Confidentialité</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const cfg = window.VAULGARD_CONFIG || {};
+
+      /* ==================== BADGE — rareté réelle pilotée par config.js ==================== */
+      (function () {
+        const el = document.getElementById("badge-places");
+        if (!el) return;
+        const restantes = cfg.PLACES_RESTANTES;
+        const cohorte = cfg.COHORTE || "";
+        const prises = cfg.PLACES_PRISES_SEMAINE || 0;
+        if (!restantes) { el.textContent = "Cohorte " + cohorte + " complète — liste d'attente"; return; }
+        let txt = restantes + " place" + (restantes > 1 ? "s" : "") + (cohorte ? " sur la cohorte de " + cohorte : "");
+        if (prises > 0) txt += " · " + prises + " prise" + (prises > 1 ? "s" : "") + " cette semaine";
+        el.textContent = txt;
+      })();
+
+      /* ==================== VSL ==================== */
+      const video = document.getElementById("vsl-video");
+      const vslOverlay = document.getElementById("vsl-overlay");
+      const vslBox = document.getElementById("vsl");
+      const reservation = document.getElementById("reservation");
+
+      if (cfg.VSL_WISTIA_ID) {
+        // Player Wistia à la place du <video> (mêmes règles : pas d'avance rapide, fin → réservation)
+        vslBox.innerHTML = '<div class="wistia_embed wistia_async_' + cfg.VSL_WISTIA_ID +
+          ' playerColor=1d1d1f seo=false" style="width:100%;height:100%"></div>';
+        vslBox.style.cursor = "default";
+        const s = document.createElement("script");
+        s.src = "https://fast.wistia.com/assets/external/E-v1.js";
+        s.async = true;
+        document.head.appendChild(s);
+        window._wq = window._wq || [];
+        window._wq.push({
+          id: cfg.VSL_WISTIA_ID,
+          onReady: function (w) {
+            let maxSeen = 0;
+            // maxSeen n'avance que par lecture continue (petits pas) — un saut ne compte pas
+            w.bind("timechange", function (t) {
+              if (t > maxSeen && t <= maxSeen + 2) maxSeen = t;
+            });
+            w.bind("seek", function (t) { if (t > maxSeen + 2) w.time(maxSeen); });
+            w.bind("end", function () { reservation.scrollIntoView({ behavior: "smooth" }); });
+          },
+        });
+      } else {
+        if (cfg.VSL_URL) video.src = cfg.VSL_URL;
+        if (cfg.VSL_POSTER) video.poster = cfg.VSL_POSTER;
+
+        let maxSeen = 0;
+        video.addEventListener("timeupdate", () => {
+          if (video.currentTime > maxSeen) maxSeen = video.currentTime;
+        });
+        video.addEventListener("seeking", () => {
+          if (video.currentTime > maxSeen + 1) video.currentTime = maxSeen;
+        });
+        // au pic de désir (fin de la vidéo), on amène la réservation — pas de vide
+        video.addEventListener("ended", () => {
+          reservation.scrollIntoView({ behavior: "smooth" });
+        });
+        vslBox.addEventListener("click", () => {
+          if (!cfg.VSL_URL) { reservation.scrollIntoView({ behavior: "smooth" }); return; }
+          if (video.paused) { video.muted = false; video.play(); vslOverlay.style.opacity = 0; vslOverlay.style.pointerEvents = "none"; }
+          else { video.pause(); vslOverlay.style.opacity = 1; vslOverlay.style.pointerEvents = "auto"; }
+        });
+      }
+
+      /* ==================== TÉMOIGNAGES VIDÉO (Wistia, façade lazy) ==================== */
+      const INTERVIEWS = [
+        { name: "Mavrick", key: "Mavrick", id: "fa5pj73c7q" },
+        { name: "Florian", key: "Florian", id: "7ib4vhbiqf" },
+        { name: "Anaïs", key: "Anaïs", id: "6h39q9zx93" },
+        { name: "Maxime", key: "Maxime-1", id: "0tf9fwvzmh" },
+        { name: "Stéphane", key: "Stéphane", id: "1qu44s7xac" },
+        { name: "Iris", key: "Iris", id: "9jli0af1yh" },
+        { name: "Marcus", key: "Marcus", id: "6k0v5708gr" },
+        { name: "Yumé", key: "Yumé", id: "wskmkqbqh0" },
+        { name: "Théo", key: "Théo", id: "2zv9ci4svz" },
+        { name: "Titouan", key: "Titouan", id: "d4lg3hbcz0" },
+        { name: "Maxime", key: "Maxime-2", id: "en0ahla7b4" },
+        { name: "Léo", key: "Léo", id: "mep8frhphu" },
+        { name: "Mathis", key: "Mathis", id: "db6zx6vhhw" },
+      ];
+
+      function playIcon() {
+        const d = document.createElement("div");
+        d.className = "vplay";
+        d.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="#0a0a0a"><path d="M8 5v14l11-7z"/></svg>';
+        return d;
+      }
+
+      function armFacade(card) {
+        const id = card.dataset.wistia;
+        const title = card.dataset.title || "Interview";
+        fetch("https://fast.wistia.com/oembed?url=" + encodeURIComponent("https://home.wistia.com/medias/" + id) + "&format=json")
+          .then((r) => r.json())
+          .then((d) => {
+            if (d && d.thumbnail_url) {
+              const img = document.createElement("img");
+              img.src = d.thumbnail_url;
+              img.alt = "";
+              img.loading = "lazy";
+              card.prepend(img);
+            }
+          })
+          .catch(() => {});
+        card.appendChild(playIcon());
+        card.addEventListener("click", () => {
+          card.innerHTML = '<iframe src="https://fast.wistia.net/embed/iframe/' + id +
+            '?seo=false&playerColor=1d1d1f&videoFoam=true&autoPlay=true" title="' + title +
+            '" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+        }, { once: true });
+      }
+
+      const vrow = document.getElementById("vrow");
+      const froms = cfg.INTERVIEWS_FROM || {};
+      const metas = cfg.INTERVIEWS_META || {};
+      const order = cfg.INTERVIEWS_ORDER || [];
+      const byKey = {};
+      INTERVIEWS.forEach((it) => { byKey[it.key] = it; });
+      const sorted = order.map((k) => byKey[k]).filter(Boolean)
+        .concat(INTERVIEWS.filter((it) => !order.includes(it.key)));
+
+      sorted.forEach((it) => {
+        const from = (froms[it.key] || "").trim();
+        const meta = (metas[it.key] || "").trim();
+        const fig = document.createElement("figure");
+        fig.className = "vcard-holder vslot";
+        fig.innerHTML =
+          '<div class="vcard" data-wistia="' + it.id + '" data-title="Interview ' + it.name + '"></div>' +
+          '<figcaption><div class="vtag">' + (from || "Interview membre") + '</div>' +
+          '<div class="vname">' + it.name + (meta ? ' <span class="vmeta">· ' + meta + "</span>" : "") + "</div></figcaption>";
+        vrow.appendChild(fig);
+      });
+
+      // La 14e carte : l'histoire du visiteur (simulation mentale → réservation)
+      const cta = document.createElement("figure");
+      cta.className = "vcard-holder vslot vslot-cta";
+      cta.innerHTML =
+        '<a class="vcard cta-card" href="#reservation">' +
+        '<span class="n14">N°14</span>' +
+        "<span class=\"cta-line\">L'histoire n°14.<br />La tienne.</span>" +
+        '<span class="cta-sub">Imagine ton interview ici, dans 6 mois.</span>' +
+        '<span class="btn" style="pointer-events:none">Réserver mon appel →</span>' +
+        "</a>";
+      vrow.appendChild(cta);
+
+      document.querySelectorAll(".vcard:not(.cta-card)").forEach(armFacade);
+    })();
+  </script>
+</body>
+</html>
