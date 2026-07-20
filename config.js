@@ -26,7 +26,6 @@ window.VAULGARD_CONFIG = {
   //      « Voulait la data avant de signer »        (analytique, 13%)
   //    Ou un fait réel du parcours. "" = "Interview membre" par défaut.
   INTERVIEWS_FROM: {
-    "Mavrick": "",
     "Florian": "« C'est une arnaque. » — son premier message.",
     "Anaïs": "",
     "Maxime-1": "",
@@ -44,7 +43,6 @@ window.VAULGARD_CONFIG = {
   // 4. IDENTITÉ (âge · région) — la divulgation d'identité augmente les ventes
   //    (Forman 2008). Format : "23 ans · Belgique". "" = rien d'affiché.
   INTERVIEWS_META: {
-    "Mavrick": "",
     "Florian": "",
     "Anaïs": "",
     "Maxime-1": "",
@@ -61,7 +59,7 @@ window.VAULGARD_CONFIG = {
 
   // 5. ORDRE DU RAIL — les 3-4 premiers visibles sans scroller doivent couvrir
   //    tes plus gros personas. Mets les clés dans l'ordre voulu.
-  INTERVIEWS_ORDER: ["Florian", "Stéphane", "Mavrick", "Anaïs", "Maxime-1", "Iris", "Marcus", "Yumé", "Théo", "Titouan", "Maxime-2", "Léo", "Mathis"],
+  INTERVIEWS_ORDER: ["Florian", "Stéphane", "Anaïs", "Maxime-1", "Iris", "Marcus", "Yumé", "Théo", "Titouan", "Maxime-2", "Léo", "Mathis"],
 
   // ============================================================
   // PAGE DE CONFIRMATION (confirmation.html) — configure la
